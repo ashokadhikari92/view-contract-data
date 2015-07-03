@@ -34,20 +34,11 @@ function parseToObject(input){
 function loadContractData(id){
 
 	var values = '';
-	values += "<li>Contract Name :"+result[id].contractname+"</li>"
-	values += "<li>Status :"+result[id].status+"</li>"
-	values += "<li>bidPurchaseDeadline :"+result[id].bidPurchaseDeadline+"</li>"
-	values += "<li>bidSubmissionDeadline :"+result[id].bidSubmissionDeadline+"</li>"
-	values += "<li>bidOpeningDate :"+result[id].bidOpeningDate+"</li>"
-	values += "<li>tenderid :"+result[id].tenderid+"</li>"
-	values += "<li>publicationDate :"+result[id].publicationDate+"</li>"
-	values += "<li>publishedIn :"+result[id].publishedIn+"</li>"
-	values += "<li>contractDate :"+result[id].contractDate+"</li>"
-	values += "<li>completionDate :"+result[id].completionDate+"</li>"
-	values += "<li>awardee :"+result[id].awardee+"</li>"
-	values += "<li>awardeeLocation :"+result[id].awardeeLocation+"</li>"
-    values += "<li>Amount :"+result[id].Amount+"</li>"
+    $.each(result[id], function(key, val) {
 
+        values += "<li>"+key +" :"+val+"</li>"
+
+    });
 
 	document.getElementById("contract-detail").innerHTML = "";
 	$("#contract-detail").append(values);
