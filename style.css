@@ -1,0 +1,50 @@
+.wrapper{
+	
+	min-height: 500px;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.head{
+
+	height: 100px;
+	width: 100%;
+	border-style: solid;
+    border-width: 1px;
+}
+.head h1{
+	vertical-align: middle;
+	margin-left: 15px;
+}
+
+.main-content{
+	
+	min-height: 400px;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.left-content{
+	
+	width: 47%;
+	min-height: 400px;
+	float: left;
+	margin-right: 2%;
+	border-style: solid;
+    border-width: 1px;
+}
+
+.right-content{
+
+	width: 47%;
+	min-height: 400px;
+	float: right;
+	margin-left: 2%;
+	border-style: solid;
+    border-width: 1px;
+}
+
+.right-content ul
+{
+    list-style-type: none;
+}
