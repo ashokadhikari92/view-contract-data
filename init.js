@@ -13,6 +13,7 @@ $(document).ready(function() {
 		console.log(e.delegateTarget.dataset.id);
 		//alert("hello");
 	});
+
 });
 
 function parseToObject(input){
@@ -35,9 +36,9 @@ function loadContractData(id){
 
 	var values = '';
     $.each(result[id], function(key, val) {
-
-        values += "<li>"+key +" :"+val+"</li>"
-
+        if(key !== 'latlon'){
+            values += "<li>"+key +" :"+val+"</li>"
+        }
     });
 
 	document.getElementById("contract-detail").innerHTML = "";
@@ -47,32 +48,30 @@ function loadContractData(id){
 			document.getElementById("googleMap").innerHTML = "";
 	}
 	else{
+        var latlon = result[id].latlon;
 
-			var latlon = result[id].latlon;
+        var commaPos = latlon.indexOf(',');
+        var coordinatesLat = parseFloat(latlon.substring(0, commaPos));
+        var coordinatesLong = parseFloat(latlon.substring(commaPos + 1, latlon.length));
+        var mapProp = {
+            center:new google.maps.LatLng(28.2639,84.4333),
+            zoom:6,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        var myLatlng = new google.maps.LatLng(coordinatesLat,coordinatesLong);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: "Hello World"
+        });
 
-			var commaPos = latlon.indexOf(',');
-			var coordinatesLat = parseFloat(latlon.substring(0, commaPos));
-			var coordinatesLong = parseFloat(latlon.substring(commaPos + 1, latlon.length));
-             var mapProp = {
-                    center:new google.maps.LatLng(28.2639,84.4333),
-                    zoom:6,
-                    mapTypeId:google.maps.MapTypeId.ROADMAP
-                  };
-			  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-			  var myLatlng = new google.maps.LatLng(coordinatesLat,coordinatesLong);
-			  var marker = new google.maps.Marker({
-			      position: myLatlng,
-			      map: map
-			  });
-
-			  google.maps.event.addDomListener(window, 'load',initialize);
-
+        google.maps.event.addDomListener(window, 'load',initialize);
 
 	}
 				
 }
-
-function initialize(){
+/*function initialize(){
 
     var latlon = result[id].latlon;
 
@@ -90,4 +89,5 @@ function initialize(){
         position: myLatlng,
         map: map
     });
-}
+}*/
+
