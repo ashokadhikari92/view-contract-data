@@ -19,7 +19,7 @@
 
 .main-content{
 	
-	min-height: 400px;
+	min-height: 500px;
 	width: 100%;
 	margin-top: 10px;
 }
@@ -27,7 +27,7 @@
 .left-content{
 	
 	width: 47%;
-	min-height: 400px;
+	min-height: 500px;
 	float: left;
 	margin-right: 2%;
 	border-style: solid;
@@ -37,7 +37,7 @@
 .right-content{
 
 	width: 47%;
-	min-height: 400px;
+	min-height: 500px;
 	float: right;
 	margin-left: 2%;
 	border-style: solid;

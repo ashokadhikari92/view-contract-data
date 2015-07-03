@@ -3,7 +3,7 @@ $(document).ready(function() {
 	var result;
     $.ajax({
         type: "GET",
-        url: "hello.csv",
+        url: "contracts.csv",
         dataType: "text",
         success: function(data) {parseToObject(data);}
      });
@@ -46,7 +46,8 @@ function loadContractData(id){
 	values += "<li>completionDate :"+result[id].completionDate+"</li>"
 	values += "<li>awardee :"+result[id].awardee+"</li>"
 	values += "<li>awardeeLocation :"+result[id].awardeeLocation+"</li>"
-	values += "<li>Amount :"+result[id].Amount+"</li>"
+    values += "<li>Amount :"+result[id].Amount+"</li>"
+
 
 	document.getElementById("contract-detail").innerHTML = "";
 	$("#contract-detail").append(values);
